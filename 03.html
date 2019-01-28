@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello React!</title>
+  <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+
+  <div id="example"></div>
+  <script type="text/babel">
+    function tick() {
+      const element = (
+        <div>
+          <h1>Hello, world!</h1>
+          <h2>现在是 {new Date().toLocaleTimeString()}.</h2>
+        </div>
+      );
+    ReactDOM.render(
+      element,
+      document.getElementById('example')
+    );
+}
+ 
+    setInterval(tick, 1000);
+
+// 更新元素渲染
+// React 元素都是不可变的。当元素被创建之后，你是无法改变其内容或属性的。
+// 目前更新界面的唯一办法是创建一个新的元素，然后将它传入 ReactDOM.render() 方法
+// 以上实例通过 setInterval() 方法，每秒钟调用一次 ReactDOM.render()。
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+		<!--react.development开发版本-->
+		<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+		<!--react-dom.development 开发版本，有错误提示-->
+		<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+		<!--babel 稳定、压缩版本-->
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/babel">
+			class Timer extends React.Component {
+			    constructor(props) {
+					super(props);
+					this.state = { seconds: 0 ,count:0};
+			    }
+
+				tick() {
+					this.setState(prevState => ({
+					  seconds: prevState.seconds + 1,
+					  count:  prevState.count + 1
+					}));
+				}
+
+				componentDidMount() {
+					this.interval = setInterval(() => this.tick(), 1000);
+				}
+
+				componentWillUnmount() {
+					clearInterval(this.interval);
+				}
+
+				render() {
+					return (
+					  <div>
+						Seconds: {this.state.seconds} <br/>
+						count:{this.state.count}
+					  </div>
+					);
+				  }
+				}
+
+			ReactDOM.render(<Timer />, document.getElementById('root'));
+		</script>
+	</body>
+</html>

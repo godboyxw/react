@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+  <!-- 实例中我们引入了三个库： react.min.js 、react-dom.min.js 和 babel.min.js：
+react.min.js - React 的核心库
+react-dom.min.js - 提供与 DOM 相关的功能
+babel.min.js - Babel 可以将 ES6 代码转为 ES5 代码，这样我们就能在目前不支持 ES6 浏览器上执行 React 代码。
+Babel 内嵌了对 JSX 的支持。通过将 Babel 和 babel-sublime 包（package）一同使用可以让源码的语法渲染上升到一个全新的水平。 -->
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    //如果我们需要使用 JSX，则 <script> 标签的 type 属性需要设置为 text/babel。
+    ReactDOM.render(  //DOM三个字母必须大写
+      <h1>study react by myself</h1>,
+      document.querySelector('#root') //或者使用document.getElementById('root')获取节点
+    )
+    //以上代码将一个 h1 标题，插入 id="example" 节点中。
+          
+    // React 代码的书写格式和以前的 JS 有很大的不同，下面通过对这段代码进行分析了解一下他。
+    // 以前使用JS 定义一个变量使用 var 现在用 const：
+    // const div = document.createElement('div');
+
+   /* ReactDOM.render(...) 是渲染方法，所有的 js,html 都可通过它进行渲染绘制，他又两个参数，内容和渲染目标 js 对象。
+      内容就是要在渲染目标中显示的东西，可以是一个React 组件，也可以是一段HTML或TEXT文本。渲染目标JS对象，就是一个DIV或TABEL,或TD 等HTML的节点对象。
+      ReactDOM.render(<App />, div);
+      unmountComponentAtNode() 这个方法是解除渲染挂载，作用和 render 刚好相反，也就清空一个渲染目标中的 React 部件或 html 内容。
+      ReactDOM.unmountComponentAtNode(div);*/
+  </script>
+  <!-- 
+  与浏览器的 DOM 元素不同，React 当中的元素事实上是普通的对象，React DOM 可以确保 浏览器 DOM 的数据内容与 React 元素保持一致。
+
+  在此 div 中的所有内容都将由 React DOM 来管理，所以我们将其称之为 "根" DOM 节点。
+
+  我们用 React 开发应用时一般只会定义一个根节点。但如果你是在一个已有的项目当中引入 React 的话，你可能会需要在不同的部分单独定义 React 根节点。
+  
+  要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上 
+-->
+</body>
+
+</html>
