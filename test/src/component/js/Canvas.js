@@ -1,6 +1,6 @@
 let w
 let h
-let num = 500 // 定义全局变量
+let num = 200 // 定义全局变量
 const canvasEle = document.createElement('canvas')
 // canvasEle.setAttribute('id','canvas')  //无法在样式里面用#canvas,setAttribute定义的是自定义属性
 canvasEle.id='canvas'  //id属于固有属性,直接获取

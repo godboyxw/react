@@ -5,6 +5,7 @@ import App from './component/js/App';
 import If from './component/js/If'
 import Lists from './component/js/Lists'
 import Demo from './component/js/Demo'
+import Clock from './component/js/Clock'
 import {Canvas} from './component/js/Canvas'  //export导出函数, import{}导入
 
 import * as serviceWorker from './serviceWorker';
@@ -16,6 +17,7 @@ ReactDOM.render(
             <If></If>
             <ul className="lists">{Lists}</ul>
             <Demo/>
+            <Clock/>
         </div>
     </div> ,
     document.getElementById('root')
