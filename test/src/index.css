@@ -13,18 +13,19 @@ code {
     monospace;
 }
 
-ul,li{
+ul,
+li {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   justify-content: space-around;
 }
 
-#canvas{
+#canvas {
   position: fixed;
   left: 0;
   right: 0;
