@@ -23,8 +23,7 @@
    Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https. -->
 </body>
 <!-- 
-  加载js文件时使用了file协议，该协议会导致跨域，而使用htpp、https等协议时则没有跨域问题。而使用file协议则是因为在浏览器中查看html文件时没有起服务！
-  平时使用webstorm时会自动起服务，所以没有注意到这个问题。
+  加载js文件时使用了file协议，该协议会导致跨域，而使用htpp、https等协议时则没有跨域问题。而使用file协议则是因为在浏览器中查看html文件时没有起服务！平时使用webstorm时会自动起服务，所以没有注意到这个问题。
 
   解决方法是安装anywhere npm包，在命令行中执行命令anywhere即可启动服务，然后可以在浏览器中使用http协议来访问html和js，就不会再报跨域错误。 
   npm install anywhere -g

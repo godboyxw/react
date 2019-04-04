@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>React 实例</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="example"></div>
+    <script type="text/babel">
+        class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+    // 这边绑定是必要的，这样 `this` 才能在回调函数中使用
+	console.log(this)//Object { props: {}, context: {}, refs: {}, updater: {…}, state: {…}, handleClick: handleClick(), _reactInternalFiber: {…}, _reactInternalInstance: {…} }
+	console.log(this.handleClick)//function handleClick()
+    // this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  render() {
+  console.log(this.handleClick)//function handleClick()
+  //此时this仍指向组件,this.handleClick仍然是function handleClick()
+  //onClick={this.handleClick}
+    return (
+      <button onClick={(e) => this.handleClick(e)}>{/*this.handleClick指的是bind改变this指向后的返回值*/}
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById('example')
+);
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        const element = document.getElementById('app')
+        class Login extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {
+                    isLogin :false
+                }
+                this.ChangeLoginOut = this.ChangeLoginOut.bind(this)
+                this.ChangeLoginIn = this.ChangeLoginIn.bind(this)
+            }
+            ChangeLoginOut(){
+                this.setState(
+                    {isLogin: false}
+                )
+            }
+            ChangeLoginIn(){
+                this.setState(
+                    {isLogin: true}
+                )
+            }
+            render(){
+                let button
+                if(this.state.isLogin){
+                    button= <button onClick = {this.ChangeLoginOut}>按钮</button>
+                }else{
+                    button= <button onClick = {this.ChangeLoginIn}>按钮</button>
+                }
+                return (
+                    <div>
+                        <LoginControl isLogin={this.state.isLogin}/>
+                        {button}
+                    </div>
+                )
+            }
+        }
+        function LoginOut(props) {
+            return <h1> 登出 </h1>
+        }
+
+        function LoginIn(props) {
+            return <h1> 登录 </h1>
+        }
+
+        function LoginControl(props) {
+            if (props.isLogin) {
+                return <LoginOut />
+            } else {
+                return <LoginIn />
+            }
+        }
+        ReactDOM.render(
+            <Login />,
+            element
+        )
+    </script>
+</body>
+
+</html>

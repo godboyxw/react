@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // const oDiv = document.getElementById('root')
+        // function changeElement() {
+        //     const element = (
+        //         <div>
+        //             <h1>更新页面元素</h1>
+        //             <p>现在的时间是 {new Date().toLocaleTimeString() }</p>
+        //         </div>)
+        //     ReactDOM.render(
+        //         element,
+        //         oDiv
+        //     )
+        // }
+        //
+        // setInterval(changeElement,1000)
+    </script>
+
+    <script type="text/babel">
+        // const oDiv = document.getElementById('root')
+        // function Clock(props) {
+        //     console.log(props)
+        //     return (
+        //         <div>
+        //             <h1>更新页面元素</h1>
+        //             <p>现在的时间是 {props.date.toLocaleTimeString() }</p>
+        //         </div>
+        //     )
+        // }
+        // function tick() {
+        //     ReactDOM.render(
+        //         <Clock  date={new Date()} />,
+        //         oDiv
+        //     )
+        // }
+        // setInterval(tick,1000)
+    </script>
+
+    <!--<script type="text/babel">-->
+        <!--const oDiv = document.getElementById('root')-->
+        <!--class Clock extends React.Component{-->
+            <!--render(){-->
+                <!--return (-->
+                    <!--<div>-->
+                        <!--<h1>更新页面元素</h1>-->
+                        <!--<p>现在的时间是 {this.props.date.toLocaleTimeString() }</p>-->
+                    <!--</div>-->
+                <!--)-->
+            <!--}-->
+        <!--}-->
+        <!--function tick() {-->
+            <!--ReactDOM.render(-->
+                <!--<Clock date={new Date()} />,-->
+                <!--oDiv-->
+            <!--);-->
+        <!--}-->
+        <!--setInterval(tick, 1000);
+    </script>-->
+
+    <script type="text/babel">
+        var i =1
+        const myStyle = {
+            fontSize:34,
+            color:'blue'
+        }
+        const oDiv = document.getElementById('root')
+        const element = (
+            <div>
+                <h1>{i = 1 ? 'true' :'false'}</h1>
+                <h2 style  = {myStyle}>哈哈哈哈</h2>
+                {/*注释...*/}
+                <p style={{color:'red',fontSize:50}}>牛奶</p>
+            </div>
+        )
+        ReactDOM.render(
+            element,
+            oDiv
+        )
+    </script>
+
+    <!--<script type="text/babel">-->
+        <!--const oDiv = document.getElementById('root')-->
+        <!--var arr = [-->
+            <!--<h1>菜鸟教程</h1>,-->
+            <!--<h2>学的不仅是技术，更是梦想！</h2>-->
+        <!--];-->
+        <!--ReactDOM.render(-->
+            <!--// <div> {-->
+            <!--//     arr.map((item,index) => {-->
+            <!--//         return (-->
+            <!--//             <div key={index}>{item}</div>-->
+            <!--//         )-->
+            <!--//     })-->
+            <!--// }</div>,-->
+            <!--<div>{arr}</div>,-->
+            <!--oDiv-->
+        <!--);-->
+    <!--</script>-->
+</body>
+</html>

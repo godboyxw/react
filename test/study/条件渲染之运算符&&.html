@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <script type="text/babel">
+        const element = document.getElementById('app')
+        function Show(props) {
+            const unread = props.unread
+            return (
+                <div>
+                    <h1>hello world</h1>
+                    {
+                        unread.length>0 && <p>你有{unread.length}条消息要读</p>
+                    }
+                </div> 
+                // {/*多个html元素一定要包一层顶层标签作为容器*/}
+            )
+        }
+        const Message = [1,2]
+        ReactDOM.render(  //函数传参,将数组Message作为参数传入进去
+            <Show unread={Message}/>,
+            element
+        )
+    </script>
+</body>
+
+</html>

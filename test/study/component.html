@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/prop-types/15.6.1/prop-types.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <title>Document</title>
+    <style>
+        .header {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        var myStyle = {
+            color:'blue',
+            fontSize : 30
+        }
+        function HelloMessage(props) {
+            function handClick(e) {
+                e.preventDefault(); //阻止默认行为
+                console.log('clicked')
+            }
+            return <a href="http://www.baidu.com" onClick={handClick}>我的名字是{props.name}</a>  
+            // React 事件绑定属性的命名采用驼峰式写法，而不是小写
+            // 传入一个函数作为事件处理函数，而不是一个字符串(DOM 元素的写法) 
+        }
+        function Test(props) {
+            return <h3>我来自{props.place}</h3>
+        }
+        Test.defaultProps = {
+            place : 'China'
+        }
+        HelloMessage.propTypes = {
+            place : PropTypes.number //PropTypes 首字母大写
+        }
+        class Clock extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {date : new Date()}
+            }
+            componentDidMount(){
+                this.timer = setInterval(() => {
+                    this.tick()
+                }, 1000);
+            }
+            componentWillUnmount(){
+                clearInterval(this.timer)
+            }
+            tick(){
+                this.setState({
+                    date : new Date()
+                })
+            }
+            render() {
+                return (
+                    <div>
+                        <h1 className="header">hello world!</h1>
+                        <h2 style={myStyle}>现在的时间是{this.state.date.toLocaleTimeString()}</h2>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <div>
+                <Clock/>
+                <HelloMessage name="tom" />  {/*JSX value should be either an expression or a quoted JSX text*/}
+                <Test/>  
+            </div>,
+            document.getElementById('app')
+        )
+    </script>
+</body>
+
+</html>
