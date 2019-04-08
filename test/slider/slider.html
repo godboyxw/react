@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0
+        }
+
+        .wrapper-box {
+            width: 300px;
+            height: 40px;
+            position: relative;
+            user-select: none;
+            background-color: #e8e8e8;
+            margin: 50px auto;
+        }
+
+        .rect {
+            width: 300px;
+            height: 40px;
+            position: absolute;
+            text-align: center;
+            line-height: 40px;
+            font-size: 14px;
+        }
+
+        .slider {
+            width: 50px;
+            height: 40px;
+            top: 0;
+            left: 0;
+            position: absolute;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: move;
+        }
+
+        .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 40px;
+            background-color: #76c61d;
+        }
+
+        .img {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper-box">
+        <div class="rect">
+            <div class="bg"></div>
+            <div class="slider" onMouseDown={this.handleMouseDown}>
+                <img class="img" src="../img/right.png" alt="" />
+            </div>
+            <span class="text">拖动滑块验证</span>
+        </div>
+    </div>
+    <script>
+        var oSlider = document.querySelector('.slider'),
+            oRect = document.querySelector('.rect'),
+            oWrapper = document.querySelector('.wrapper-box'),
+            oImg = document.querySelector('.img'),
+            oBg = document.querySelector('.bg'),
+            oText = document.querySelector('.text'),
+            isTrue = false, //判断是否到头了
+            left 
+            oWidth = oRect.offsetWidth - oSlider.offsetWidth
+            //offsetWidth  获取对象宽度,返回数值,不带单位
+
+        oSlider.onmousedown = function (e) {
+            var initX = e.clientX
+            document.onmousemove = function (e) {
+                var moveX = e.clientX
+                left = moveX - initX
+                console.log(left)
+                left = Math.max(left,0)
+                left = Math.min(left,oWidth)
+                /**
+                  类似于if判断,但是性能更好
+                  if(left < 0) {
+                      left = 0
+                  }
+                  if(left > oWidth) {
+                      left = oWidth
+                  }
+                 
+                 **/
+                if(left >= oWidth){
+                    //此处传输数据到后台进行登录判断
+                    oImg.src = "../img/left.png"
+                    document.onmousemove = null
+                    oText.style.color = '#fff'
+                    isTrue = true
+                    ////开关,滑块验证成功后禁止往回拖,触发鼠标按下事件后,开关开启,return,后续代码不执行
+                }
+                // oSlider.style.left = left + 'px'
+                // oBg.style.width = left + 'px'
+                oSlider.style.left = oBg.style.width = left + 'px'
+
+            }
+        }
+
+        document.onmouseup = function(){
+            document.onmousemove = null  
+            //指向空 六大假值(undefined,null,0,NAN,"",false均可,但是建议为null)
+            
+            //鼠标松开,未达到验证时,返回初始位置
+            if(left < oWidth) {
+                oSlider.style.left = oBg.style.width = 0
+            }
+        }
+    </script>
+</body>
+
+</html>
