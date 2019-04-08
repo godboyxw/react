@@ -6,7 +6,9 @@ import Demo from './component/js/Demo'
 import If from './component/js/If'
 import Slider from './component/js/Slider'
 import Lists from './component/js/Lists'
-// import {Canvas} from './component/js/Canvas'
+import RouterDemo from './component/js/RouterDemo'
+
+//import {Canvas} from './component/js/Canvas'
 
 
 ReactDOM.render(
@@ -16,8 +18,10 @@ ReactDOM.render(
             <Clock/>
             <Demo/>
             <If/>
+            <ul><Lists/></ul>
             <Slider/>
+            <RouterDemo/>
         </div>
         ,document.querySelector("#app")
     );
-   // Canvas()
+// Canvas()

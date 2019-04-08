@@ -1,7 +1,11 @@
 #canvas {
-    position: fixed;
-    left: 0;
-    right: 0;
+    /* position: absolute;
     bottom: 0;
-    top: 0;
+    height: 50%;
+    top: 800px;
+    left: 0;
+    right: 0; */
   }
+#app>div>*{
+  margin-bottom: 30px;
+}
